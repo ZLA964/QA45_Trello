@@ -35,19 +35,11 @@ public class BoardsPage extends BasePage {
     }
 
     public void createNewBoard(Board board) {
-        clickWait(btnCreateNewBoard,5);
-        waitNewElementOnPage(sectionCreateBoard, 3);
+        btnCreateNewBoard.click();
         inputBoardTitle.sendKeys(board.getBoardTitle());
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", btnCreateNewBoard);
-        WebElement button = new WebDriverWait(driver,5)
-                .until(ExpectedConditions.elementToBeClickable(
-                        By.xpath("//button[@data-testid='create-board-submit-button']")));
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(btnSubmitNewBoard).perform();
-
-        button.click();
-//        clickWait(btnSubmitNewBoard,5);
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView(true);", btnCreateNewBoard);
+        clickWait(btnSubmitNewBoard,2);
     }
 
 }
