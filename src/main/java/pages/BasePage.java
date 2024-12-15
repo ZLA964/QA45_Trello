@@ -28,6 +28,10 @@ public class BasePage extends AppManager {
                 .until(ExpectedConditions.visibilityOf(element));
     }
 
-
+    public void clickWait(WebElement element, int time){
+        new WebDriverWait(driver,time)
+                .until(ExpectedConditions.elementToBeClickable(element))
+                .click();
+    }
 
 }
