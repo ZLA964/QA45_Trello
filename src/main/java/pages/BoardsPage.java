@@ -1,10 +1,7 @@
 package pages;
 
 import dto.Board;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -37,9 +34,17 @@ public class BoardsPage extends BasePage {
     public void createNewBoard(Board board) {
         btnCreateNewBoard.click();
         inputBoardTitle.sendKeys(board.getBoardTitle());
-        ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].scrollIntoView(true);", btnCreateNewBoard);
-        clickWait(btnSubmitNewBoard,2);
+        clickWait(btnSubmitNewBoard,3);
     }
 
+    public void createNewBoardNegative(Board board) {
+        btnCreateNewBoard.click();
+        inputBoardTitle.sendKeys(board.getBoardTitle());
+    }
+
+    public boolean buttonCreateIsNotClickable() {
+       return new WebDriverWait(driver,3)
+                .until(ExpectedConditions.not(
+                        ExpectedConditions.elementToBeClickable(btnSubmitNewBoard)));
+    }
 }
