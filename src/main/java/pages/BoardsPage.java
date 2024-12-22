@@ -25,6 +25,22 @@ public class BoardsPage extends BasePage {
     @FindBy(xpath = "//h2[@title='Create board']/../..")
     WebElement sectionCreateBoard;
 
+    @FindBy(xpath = "//div[@class='board-tile-details is-badged']")
+    WebElement firstBoard;
+
+    @FindBy(xpath = "//span[@class='QMKgZFIlTLiEJN']")
+    WebElement popUpMessageBoardDelete;
+
+
+    public boolean validatePopUpMessage(String text){
+        return validateTextInElementWait(popUpMessageBoardDelete, text, 5);
+    }
+
+
+    public void openFirstBoard(){
+        firstBoard.click();
+    }
+
 
     public boolean validateUrl() {
         return new WebDriverWait(driver, 5)
