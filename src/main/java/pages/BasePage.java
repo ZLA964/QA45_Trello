@@ -7,14 +7,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
 public class BasePage extends AppManager {
     static WebDriver driver;
+    public Logger logger = LoggerFactory.getLogger(BasePage.class);
 
     public static void setDriver(WebDriver wD) {
         BasePage.driver = wD;
     }
+
 
     public void pause(int timeInSeconds){
         try {
