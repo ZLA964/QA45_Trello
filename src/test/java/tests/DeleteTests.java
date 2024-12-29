@@ -16,6 +16,7 @@ import static utils.RandomUtils.*;
 public class DeleteTests extends AppManager {
     BoardsPage boardsPage;
 
+
     @BeforeMethod
     public void login(){
         User user = User.builder()
