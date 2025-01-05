@@ -31,7 +31,7 @@ public class DeleteTests extends AppManager {
         boardsPage.createNewBoard(board);
     }
 
-    @Test
+    @Test(invocationCount = 1)
     public void deleteFistBoardPositiveTest(){
         boardsPage.openFirstBoard();
         new MyBoardPage(getDriver()).deleteBoard();

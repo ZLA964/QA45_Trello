@@ -5,11 +5,13 @@ import dto.User;
 import manager.AppManager;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.AtlassianProfilePage;
 import pages.BoardsPage;
 import pages.HomePage;
 import pages.LoginPage;
+import utils.TestNGListener;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ import java.util.List;
 
 import static utils.RandomUtils.generateString;
 
+@Listeners(TestNGListener.class)
 public class ChangeProfileTests extends AppManager {
     BoardsPage boardsPage;
 
